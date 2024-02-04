@@ -55,6 +55,10 @@ input {
   margin-bottom: 20px;
 }
 
+#participants-list {
+  margin-bottom: 20px;
+}
+
 /* Winner display styles */
 #winnerSection {
   text-align: center;
@@ -65,25 +69,44 @@ input {
 
 /* Button styles */
 #submit-button,
-#draw-button {
-  background-color: #ff4081;
-  color: white;
-  border: none;
+#draw-button,
+#reset-button {
+  width: 100%;
+  padding: 10px;
   border-radius: 4px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 100%; /* Make buttons full-width */
-  padding: 10px; /* Adjusted padding to maintain consistency */
+}
+
+#submit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-bottom: 10px;
 }
 
 #draw-button {
-  background-color: #2196f3;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-bottom: 10px;
+}
+
+#reset-button {
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  margin-top: 10px;
 }
 
 #submit-button:hover,
 #draw-button:hover {
+  background-color: #1367c0;
+}
+
+#reset-button:hover {
   background-color: #d5004e;
 }
 
@@ -95,5 +118,9 @@ button:focus {
 @media screen and (max-width: 600px) {
   #app {
     max-width: 100%;
+  }
+
+  button {
+    width: 100%;
   }
 }
