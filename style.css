@@ -87,18 +87,19 @@ input {
   margin-bottom: 10px;
 }
 
-#draw-button {
+#draw-button,
+#reset-button {
   background-color: #007bff;
   color: white;
   border: none;
   margin-bottom: 10px;
+  display: block; /* Add display block to ensure consistent rendering */
 }
 
 #reset-button {
   background-color: #ff4081;
   color: white;
   border: none;
-  margin-top: 10px;
 }
 
 #submit-button:hover,
@@ -114,12 +115,15 @@ button:focus {
   outline: none;
 }
 
+/* Flex container for Draw and Reset buttons */
+.button-container {
+  display: flex;
+  gap: 10px; /* Adjust the gap as needed */
+  justify-content: space-between; /* Align buttons at the start and end */
+}
+
 /* Responsive Styles */
 @media screen and (max-width: 600px) {
-  form-container {
-    display: none; /* Hide the form container in responsive mode */
-  }
-
   #app {
     max-width: 100%;
     margin: 20px 10px 0; /* Add margins to the sides in responsive view */
