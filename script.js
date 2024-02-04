@@ -1,40 +1,55 @@
-const participantInput = document.getElementById('participantName');
-const participantsContainer = document.querySelector('.participants-container');
-const winnerSection = document.getElementById('winnerSection');
-const winnerNameElement = document.getElementById('winnerName');
-let participants = [];
+// Get relevant elements
+const nameInput = document.getElementById('participantName');
+const participantsList = document.querySelector('.participants-container');
+const drawButton = document.getElementById('draw-button');
+const winnerDisplay = document.getElementById('winnerSection');
 
+// Array to store participant names
+const participants = [];
+
+// Function to add participant to the list
 function addParticipant() {
-    const participantName = participantInput.value.trim();
-    if (participantName !== '') {
-        participants.push(participantName);
-        participantInput.value = '';
+    // Get the entered name
+    const name = nameInput.value.trim();
+
+    // Check if the name is not empty
+    if (name !== '') {
+        // Add the name to the participants array
+        participants.push(name);
+
+        // Display the name in the participants list
         updateParticipantsList();
+
+        // Clear the input field
+        nameInput.value = '';
     }
 }
 
+// Function to draw a random winner
 function drawWinner() {
+    // Check if there are participants
     if (participants.length > 0) {
-        const randomIndex = Math.floor(Math.random() * participants.length);
-        const winner = participants[randomIndex];
-        winnerNameElement.innerText = winner;
-        showWinnerSection();
-    } else {
-        hideWinnerSection();
+        // Randomly select a winner
+        const winnerIndex = Math.floor(Math.random() * participants.length);
+        const winner = participants[winnerIndex];
+
+        // Display the winner's name with emojis
+        winnerDisplay.innerHTML = `<p>🎉 Winner: ${winner} 🍰</p>`;
     }
 }
 
+// Function to update participants list display
 function updateParticipantsList() {
-    participantsContainer.innerHTML = '<h2>Participants</h2>';
+    participantsList.innerHTML = '<h2>Participants</h2>';
+    
+    // Loop through participants and display each name
     participants.forEach(participant => {
-        participantsContainer.innerHTML += `<p>${participant}</p>`;
+        participantsList.innerHTML += `<p>${participant}</p>`;
     });
 }
 
-function showWinnerSection() {
-    winnerSection.style.display = 'block';
-}
+// Event listener for form submission
+document.getElementById('submit-button').addEventListener('click', addParticipant);
 
-function hideWinnerSection() {
-    winnerSection.style.display = 'none';
-}
+// Event listener for the draw button
+drawButton.addEventListener('click', drawWinner);
