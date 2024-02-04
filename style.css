@@ -44,7 +44,7 @@ label {
 
 input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -64,35 +64,27 @@ input {
 }
 
 /* Button styles */
-#submit-button {
+#submit-button,
+#draw-button {
   background-color: #ff4081;
   color: white;
   border: none;
   border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%; /* Make buttons full-width */
+  padding: 10px; /* Adjusted padding to maintain consistency */
 }
 
 #draw-button {
   background-color: #2196f3;
-  color: white;
-  border: none;
-  border-radius: 4px;
 }
 
-button {
-  width: 100%;
-  padding: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-#submit-button:hover {
-  background-color: #d5004e;
-}
-
+#submit-button:hover,
 #draw-button:hover {
-  background-color: #1e87da;
+  background-color: #d5004e;
 }
 
 button:focus {
@@ -103,9 +95,5 @@ button:focus {
 @media screen and (max-width: 600px) {
   #app {
     max-width: 100%;
-  }
-
-  button {
-    width: calc(100% - 20px);
   }
 }
